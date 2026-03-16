@@ -296,7 +296,7 @@
                 </div>
                 
                 <button class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30">
-                    Demo演示
+                    产品演示
                 </button>
             </div>
         </div>
@@ -309,13 +309,19 @@
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="animate-float">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                    重新定义<span class="text-gradient">智慧渔业</span><br>
-                    <span class="text-3xl md:text-5xl font-light text-slate-300">AI驱动的全栈养殖解决方案</span>
+                    场景驱动的<span class="text-gradient">智慧渔业</span><br>
+                    <span class="text-3xl md:text-5xl font-light text-slate-300">AI驱动的全栈智能养殖解决方案</span>
                 </h1>
             </div>
             
             <p class="mt-6 text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                融合知识图谱、智能体与物联网硬件，为现代水产养殖提供从决策到执行的闭环智能生态系统
+                构建场景驱动的渔业AIOT网络，建立融合知识图谱、专家模型与决策控制的多级智能体
+                 <!-- 窄屏显示：逗号 + 换行 -->
+                <span class="md:hidden">，</span>
+  
+                <!-- 宽屏显示：仅逗号 (不换行) -->
+                <!-- <span class="hidden md:inline">，</span> -->
+                为现代水产养殖提供从决策到执行的闭环智能生态系统
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -368,21 +374,25 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 产品1: ERP -->
-                <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer">
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 icon-glow group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
-                        </svg>
+                
+                <!-- 产品1: 智能体 -->
+                <!-- <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer"> -->
+                    <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer" onclick="openModal()">
+                        <div class="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-6 icon-glow group-hover:scale-110 transition-transform">
+                            <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white">养殖智能体-AquaClaw 
+                            <span class="inline-block ml-2 text-xs bg-cyan-100 text-cyan-700 px-2 py-0.5 rounded">点击查看</span>
+                        </h3>
+                        <p class="text-slate-400 mb-4 text-sm leading-relaxed">基于大模型的自主决策系统，可分析环境数据、预测生长趋势、自动调节设备，实现无人值守养殖。</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">自主决策</span>
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">预测分析</span>
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">多模态交互</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">智慧渔业 ERP</h3>
-                    <p class="text-slate-400 mb-4 text-sm leading-relaxed">全产业链数字化管理平台，涵盖养殖计划、库存管理、溯源追踪、财务分析，实现从投苗到销售的全流程管控。</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">库存管理</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">成本核算</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">溯源系统</span>
-                    </div>
-                </div>
 
                 <!-- 产品2: 知识图谱 -->
                 <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer">
@@ -400,22 +410,19 @@
                     </div>
                 </div>
 
-                <!-- 产品3: 智能体 -->
-                <!-- <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer"> -->
-                <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer" onclick="openModal()">
-                    <div class="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-6 icon-glow group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                <!-- 产品3: ERP -->
+                <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-6 icon-glow group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">养殖智能体-FishClaw 
-                        <span class="inline-block ml-2 text-xs bg-cyan-100 text-cyan-700 px-2 py-0.5 rounded">点击查看</span>
-                    </h3>
-                    <p class="text-slate-400 mb-4 text-sm leading-relaxed">基于大模型的自主决策系统，可分析环境数据、预测生长趋势、自动调节设备，实现无人值守养殖。</p>
+                    <h3 class="text-xl font-bold mb-3 text-white">智慧渔业 ERP</h3>
+                    <p class="text-slate-400 mb-4 text-sm leading-relaxed">全产业链数字化管理平台，涵盖养殖计划、库存管理、溯源追踪、财务分析，实现从投苗到销售的全流程管控。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">自主决策</span>
-                        <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">预测分析</span>
-                        <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">多模态交互</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">库存管理</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">成本核算</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">溯源系统</span>
                     </div>
                 </div>
 
@@ -731,12 +738,13 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center">
+                        <!-- <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
-                        </div>
-                        <span class="text-xl font-bold">MilanTech</span>
+                        </div> -->
+                        <img src="./assets/logo-en.png" alt="MLTech Logo" class="w-18 h-8 rounded-lg object-cover">
+                        <span class="text-xl font-bold">MiLanTech</span>
                     </div>
                     <p class="text-slate-400 text-sm">全球领先的智慧渔业全栈解决方案提供商</p>
                 </div>
@@ -744,25 +752,25 @@
                 <div>
                     <h4 class="font-semibold mb-4">产品</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">智慧ERP</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">渔业智能体</a></li>
                         <li><a href="#" class="hover:text-teal-400 transition-colors">知识图谱</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">养殖智能体</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">智慧ERP</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4">硬件</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">投饵机器人</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">声呐监测</a></li>
-                        <li><a href="#" class="hover:text-teal-400 transition-colors">巡检机器人</a></li>
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">智能监测设备</a></li> 
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">生物量估测设备</a></li>         
+                        <li><a href="#" class="hover:text-teal-400 transition-colors">水产机器人</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-semibold mb-4">联系我们</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li>浙江省杭州市余杭区</li>
+                        <li>浙江省杭州市余杭区浙大森林C幢</li>
                         <li>contact@milan.com</li>
                         <li>400-888-0000</li>
                     </ul>
@@ -775,10 +783,10 @@
     </footer>
 
      <!-- 模态窗口 - 养殖智能体详情 -->
-     <div class="modal-overlay" id="fishclawModal" onclick="closeModal(event)">
+     <div class="modal-overlay" id="AquaclawModal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-header">
-                <h3 class="modal-title">养殖智能体 - FishClaw</h3>
+                <h3 class="modal-title">养殖智能体 - AquaClaw</h3>
                 <button class="modal-close" onclick="closeModal()">
                     <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -789,7 +797,7 @@
                 <!-- 视频容器 -->
                 <div class="video-container">
                     <!-- 使用示例视频，您可以替换为本地路径或GitHub地址 -->
-                    <video controls poster="./assets/ftd-cover.jpg">
+                    <video controls poster="./assets/ftd-cover.png">
                         <!-- 本地视频路径示例 -->
                         <source src="./assets/fish-tracking-demo - 01.mp4" type="video/mp4">
                         <!-- GitHub Raw 地址示例（请替换为您的实际地址） -->
@@ -820,15 +828,15 @@
     <script>
         // 模态窗口控制
         function openModal() {
-            const modal = document.getElementById('fishclawModal');
+            const modal = document.getElementById('AquaclawModal');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // 禁止背景滚动
         }
 
         function closeModal(event) {
             // 如果点击的是关闭按钮或遮罩层本身，则关闭
-            if (!event || event.target.id === 'fishclawModal' || event.target.closest('.modal-close')) {
-                const modal = document.getElementById('fishclawModal');
+            if (!event || event.target.id === 'AquaclawModal' || event.target.closest('.modal-close')) {
+                const modal = document.getElementById('AquaclawModal');
                 modal.classList.remove('active');
                 document.body.style.overflow = ''; // 恢复滚动
 
@@ -843,7 +851,7 @@
         // 打开详细页面
         function openDetailPage() {
             // 在新标签页打开详细页面
-            window.open('fishclaw-detail.html', '_blank');
+            window.open('AquaClaw-detail.html', '_blank');
         }
 
         // ESC键关闭模态窗口
