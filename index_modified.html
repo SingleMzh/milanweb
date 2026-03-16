@@ -120,158 +120,8 @@
                 linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
         }
-
-        /* 新增：模态窗口样式 */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            z-index: 100;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 20px;
-            max-width: 800px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            transform: scale(0.9) translateY(20px);
-            transition: transform 0.3s ease;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1) translateY(0);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 24px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .modal-close {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .modal-close:hover {
-            background: #e2e8f0;
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 0;
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 */
-            background: #000;
-        }
-
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-text {
-            padding: 24px;
-        }
-
-        .modal-text h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 12px;
-        }
-
-        .modal-text p {
-            color: #475569;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .detail-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: #0891b2;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .detail-link:hover {
-            color: #0e7490;
-            gap: 10px;
-        }
-
-        /* 点击产品标题的指针样式 */
-        .clickable-title {
-            cursor: pointer;
-            position: relative;
-            display: inline-block;
-        }
-
-        .clickable-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #0891b2, #10b981);
-            transition: width 0.3s ease;
-        }
-
-        .clickable-title:hover::after {
-            width: 100%;
-        }
-
-        .clickable-title:hover {
-            color: #0891b2;
-        }
-        
-
     </style>
 </head>
-
 <body class="bg-slate-900 text-white overflow-x-hidden">
 
     <!-- 导航栏 -->
@@ -288,11 +138,11 @@
                     <span class="text-2xl font-bold tracking-tight">ML<span class="text-teal-400">Tech</span></span>
                 </div>
                 
-                <div class="hidden md:flex space-x-8 text-xl">
-                    <a href="#products" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">产品矩阵</a>
-                    <a href="#solutions" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">解决方案</a>
-                    <a href="#technology" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">技术架构</a>
-                    <a href="#cases" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">应用案例</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#products" class="text-slate-300 hover:text-teal-400 transition-colors text-sm font-medium">产品矩阵</a>
+                    <a href="#solutions" class="text-slate-300 hover:text-teal-400 transition-colors text-sm font-medium">解决方案</a>
+                    <a href="#technology" class="text-slate-300 hover:text-teal-400 transition-colors text-sm font-medium">技术架构</a>
+                    <a href="#cases" class="text-slate-300 hover:text-teal-400 transition-colors text-sm font-medium">应用案例</a>
                 </div>
                 
                 <button class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30">
@@ -359,8 +209,12 @@
         </div>
     </section>
 
-    <!-- 产品矩阵 Section -->
-    <section id="products" class="py-24 bg-slate-900 relative grid-bg">
+    <!-- 产品矩阵 Section - 深蓝科技背景 -->
+    <section id="products" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0B1120 0%, #1E293B 50%, #0F172A 100%);">
+        <!-- 动态纹理背景 -->
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.1) 0%, transparent 50%);"></div>
+        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-bold mb-4">全栈产品矩阵</h2>
@@ -401,16 +255,13 @@
                 </div>
 
                 <!-- 产品3: 智能体 -->
-                <!-- <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer"> -->
-                <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer" onclick="openModal()">
+                <div class="glass-card rounded-2xl p-8 reveal group cursor-pointer">
                     <div class="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-6 icon-glow group-hover:scale-110 transition-transform">
                         <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">养殖智能体-FishClaw 
-                        <span class="inline-block ml-2 text-xs bg-cyan-100 text-cyan-700 px-2 py-0.5 rounded">点击查看</span>
-                    </h3>
+                    <h3 class="text-xl font-bold mb-3 text-white">养殖智能体-FishClaw</h3>
                     <p class="text-slate-400 mb-4 text-sm leading-relaxed">基于大模型的自主决策系统，可分析环境数据、预测生长趋势、自动调节设备，实现无人值守养殖。</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">自主决策</span>
@@ -470,9 +321,15 @@
         </div>
     </section>
 
-    <!-- 技术架构 Section -->
-    <section id="technology" class="py-24 bg-slate-800/50 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800"></div>
+    <!-- 技术架构 Section - 科技蓝背景 -->
+    <section id="technology" class="py-24 relative overflow-hidden" style="background: linear-gradient(180deg, #1E3A8A 0%, #1E40AF 50%, #1E3A8A 100%);">
+        <!-- 科技纹理 -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+        <!-- 光晕效果 -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-bold mb-4">技术架构</h2>
@@ -598,8 +455,14 @@
         </div>
     </section>
 
-    <!-- 解决方案场景 -->
-    <section id="solutions" class="py-24 bg-slate-900">
+    <!-- 解决方案场景 - 深靛蓝背景 -->
+    <section id="solutions" class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #312E81 50%, #1E1B4B 100%);">
+        <!-- 网格纹理 -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        </div>
+        <!-- 顶部光效 -->
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-32 bg-gradient-to-b from-indigo-500/10 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-bold mb-4">场景解决方案</h2>
@@ -690,9 +553,11 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA Section - 极光渐变 -->
     <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-teal-900"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, #0C4A6E 0%, #075985 25%, #0F766E 50%, #0C4A6E 100%);"></div>
+        <!-- 动态光效 -->
+        <div class="absolute top-1/2 left-0 w-full h-full bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent transform -translate-y-1/2 blur-3xl"></div>
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
@@ -725,8 +590,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-white/10 py-12">
+    <!-- Footer - 深空蓝 -->
+    <footer class="border-t border-white/10 py-12 relative overflow-hidden" style="background: linear-gradient(180deg, #020617 0%, #0F172A 100%);">
+        <!-- 底部光晕 -->
+        <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-64 bg-blue-900/20 blur-3xl"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
@@ -774,85 +641,7 @@
         </div>
     </footer>
 
-     <!-- 模态窗口 - 养殖智能体详情 -->
-     <div class="modal-overlay" id="fishclawModal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3 class="modal-title">养殖智能体 - FishClaw</h3>
-                <button class="modal-close" onclick="closeModal()">
-                    <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- 视频容器 -->
-                <div class="video-container">
-                    <!-- 使用示例视频，您可以替换为本地路径或GitHub地址 -->
-                    <video controls poster="./assets/ftd-cover.jpg">
-                        <!-- 本地视频路径示例 -->
-                        <source src="./assets/fish-tracking-demo.mp4" type="video/mp4">
-                        <!-- GitHub Raw 地址示例（请替换为您的实际地址） -->
-                        <!-- <source src="https://raw.githubusercontent.com/yourusername/yourrepo/main/assets/fish-tracking-demo.mp4" type="video/mp4"> -->
-                        <!-- 备用：使用在线示例视频 -->
-                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                        您的浏览器不支持视频播放。
-                    </video>
-                </div>
-
-                <!-- 文字介绍 -->
-                <div class="modal-text">
-                    <h3>鱼类跟踪识别</h3>
-                    <p>
-                        基于深度学习的计算机视觉技术，实现对养殖鱼类的实时跟踪与行为识别。系统采用自研FishSort算法融合架构，能够在复杂水下环境中同时跟踪数十条鱼类个体，精准识别游动轨迹、进食行为、异常状态（如疾病、死亡）。通过边缘计算设备实时处理高清视频流，无需上传云端即可实现毫秒级响应，确保养殖环境的实时监测与预警能力。
-                    </p>
-                    <span class="detail-link" onclick="openDetailPage()">
-                        详细内容
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <script>
-        // 模态窗口控制
-        function openModal() {
-            const modal = document.getElementById('fishclawModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // 禁止背景滚动
-        }
-
-        function closeModal(event) {
-            // 如果点击的是关闭按钮或遮罩层本身，则关闭
-            if (!event || event.target.id === 'fishclawModal' || event.target.closest('.modal-close')) {
-                const modal = document.getElementById('fishclawModal');
-                modal.classList.remove('active');
-                document.body.style.overflow = ''; // 恢复滚动
-
-                // 暂停视频播放
-                const video = modal.querySelector('video');
-                if (video) {
-                    video.pause();
-                }
-            }
-        }
-
-        // 打开详细页面
-        function openDetailPage() {
-            // 在新标签页打开详细页面
-            window.open('fishclaw-detail.html', '_blank');
-        }
-
-        // ESC键关闭模态窗口
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
         // 导航栏滚动效果
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -967,4 +756,4 @@
         });
     </script>
 </body>
-</html
+</html>
