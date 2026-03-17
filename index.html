@@ -269,7 +269,38 @@
         }
         
 
+        /* 向下箭头点击样式 */
+        .scroll-arrow {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .scroll-arrow:hover {
+            transform: translateX(-50%) translateY(5px) !important;
+        }
+
+        /* 锚点跳转偏移，防止被固定导航栏遮挡 */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* 移动端优化：确保内容在可视区域内 */
+        @media (max-width: 768px) {
+            .ocean-gradient {
+                padding-top: 5rem; /* 确保移动端内容不被导航栏遮挡 */
+            }
+    
+        /* 调整标题大小避免换行过多导致的上移 */
+        .animate-float h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            }
+    
+        .animate-float h1 span.text-3xl {
+            font-size: 1.5rem;
+            }
+        }
     </style>
+<base target="_blank">
 </head>
 
 <body class="bg-slate-900 text-white overflow-x-hidden">
@@ -278,7 +309,9 @@
     <nav class="fixed w-full z-50 glass border-b border-white/10 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-3">
+                <!-- Logo点击回到页首 -->
+                <!-- <div class="flex items-center space-x-3"> -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <!-- <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center pulse-glow">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -288,11 +321,19 @@
                     <span class="text-2xl font-bold tracking-tight">ML<span class="text-teal-400">Tech</span></span>
                 </div>
                 
-                <div class="hidden md:flex space-x-8 text-xl">
+                <!-- <div class="hidden md:flex space-x-8 text-xl">
                     <a href="#products" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">产品矩阵</a>
                     <a href="#solutions" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">解决方案</a>
                     <a href="#technology" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">技术架构</a>
                     <a href="#cases" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">应用案例</a>
+                </div> -->
+
+                <!-- 将原有的导航链接改为 onclick 平滑滚动 -->
+                <div class="hidden md:flex space-x-8 text-xl">
+                    <a href="#products" onclick="event.preventDefault(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium cursor-pointer">产品矩阵</a>
+                    <a href="#technology" onclick="event.preventDefault(); document.getElementById('technology').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium cursor-pointer">技术架构</a>
+                    <a href="#solutions" onclick="event.preventDefault(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium cursor-pointer">解决方案</a>
+                    <a href="#cases" onclick="event.preventDefault(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium cursor-pointer">应用案例</a>
                 </div>
                 
                 <button class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30">
@@ -303,7 +344,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center ocean-gradient overflow-hidden grid-bg">
+    <section class="relative h-screen flex flex-col justify-center ocean-gradient overflow-hidden grid-bg pt-20 md:pt-0">
+    <!-- <section class="relative min-h-screen flex items-center justify-center ocean-gradient overflow-hidden grid-bg"> -->
         <canvas id="particles-canvas"></canvas>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -325,7 +367,10 @@
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-xl shadow-blue-500/30 flex items-center justify-center gap-2 group">
+                <!-- 点击跳转到全栈产品矩阵 -->
+                <!-- <button class="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-xl shadow-blue-500/30 flex items-center justify-center gap-2 group"></button> -->
+                <button onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="bg-gradient-to-r from-blue-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-xl shadow-blue-500/30 flex items-center justify-center gap-2 group">
+
                     探索产品矩阵
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -338,27 +383,35 @@
 
             <!-- 核心数据展示 -->
             <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                 <!-- 数据1: 养殖品类 6+ -->
                 <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-teal-400">30%</div>
-                    <div class="text-sm text-slate-400 mt-1">智能投喂</div>
+                    <div class="text-sm md:text-base text-slate-400 mb-1">养殖品类</div>
+                    <div class="text-6xl md:text-4xl font-bold text-teal-400">6+</div>
+                    <div class="text-2xl text-slate-400 mt-1">智能投喂</div>
                 </div>
+                <!-- 数据2: 模态融合 3+N -->
                 <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-400">24/7</div>
-                    <div class="text-sm text-slate-400 mt-1">系统感知</div>
+                    <div class="text-sm md:text-base text-slate-400 mb-1">模态融合</div>
+                    <div class="text-6xl md:text-4xl font-bold text-blue-400">3+N</div>
+                    <div class="text-2xl text-slate-400 mt-1">系统感知</div>
                 </div>
+                <!-- 数据3: 知识实例 10w+ -->
                 <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-cyan-400">99%</div>
-                    <div class="text-sm text-slate-400 mt-1">知识图谱</div>
+                    <div class="text-sm md:text-base text-slate-400 mb-1">知识实例</div>
+                    <div class="text-6xl md:text-4xl font-bold text-cyan-400">10w+</div>
+                    <div class="text-2xl text-slate-400 mt-1">知识图谱</div>
                 </div>
+                <!-- 数据4: 准确率 >90% -->
                 <div class="text-center">
-                    <div class="text-3xl md:text-4xl font-bold text-emerald-400">50%</div>
-                    <div class="text-sm text-slate-400 mt-1">生物量估计</div>
+                    <div class="text-sm md:text-base text-slate-400 mb-1">准确率</div>
+                    <div class="text-6xl md:text-4xl font-bold text-emerald-400">>90%</div>
+                    <div class="text-2xl text-slate-400 mt-1">生物量估计</div>
                 </div>
             </div>
         </div>
 
         <!-- 滚动指示器 -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce scroll-arrow" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" title="向下滚动">
             <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
             </svg>
@@ -402,11 +455,11 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-white">渔业知识图谱</h3>
-                    <p class="text-slate-400 mb-4 text-sm leading-relaxed">构建水产养殖领域知识引擎，整合疾病库、饵料配方、环境参数等数据，提供智能问答与决策建议。</p>
+                    <p class="text-slate-400 mb-4 text-sm leading-relaxed">构建水产养殖领域知识引擎，整合养殖经验、环境响应等知识资料，耦合生产实效数据，提供智能问答与决策建议。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">疾病诊断</span>
-                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">方案推荐</span>
-                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">语义检索</span>
+                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">养殖知识</span>
+                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">环境响应</span>
+                        <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">生物习性</span>
                     </div>
                 </div>
 
@@ -738,7 +791,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
+                    <div class="flex items-center space-x-3 mb-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <!-- <div class="flex items-center space-x-3 mb-4"> -->
                         <!-- <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-teal-400 flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -976,4 +1030,4 @@
         });
     </script>
 </body>
-</html
+</html>
