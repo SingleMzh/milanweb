@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0f172a">
+    
+    <title>客户案例 - Milan Tech | 觅蓝科技</title>
+    <meta name="description" content="查看 Milan Tech 智慧渔业解决方案的成功案例，了解我们如何帮助客户实现数字化转型。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans SC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+        }
+        
+        .ocean-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            background-size: 400% 400%;
+            animation: oceanFlow 15s ease infinite;
+        }
+        
+        @keyframes oceanFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(30, 58, 95, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .case-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .case-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 10;
+        }
+        
+        .theme-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(56, 189, 248, 0.2);
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0891b2;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #0891b2, #10b981);
+            color: white;
+        }
+        
+        /* Light Theme Styles */
+        [data-theme="light"] .bg-slate-900 {
+            background-color: #f1f5f9 !important;
+        }
+        
+        [data-theme="light"] .bg-slate-800\/30 {
+            background-color: rgba(226, 232, 240, 0.8) !important;
+        }
+        
+        [data-theme="light"] .bg-slate-950 {
+            background-color: #e2e8f0 !important;
+        }
+        
+        [data-theme="light"] .ocean-gradient {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 30%, #7dd3fc 60%, #38bdf8 100%);
+            background-size: 400% 400%;
+        }
+        
+        [data-theme="light"] .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        [data-theme="light"] .glass-card:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12), 0 10px 20px -5px rgba(56, 189, 248, 0.15);
+        }
+        
+        [data-theme="light"] .glass {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        [data-theme="light"] .grid-bg {
+            background-image: 
+                linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+        }
+        
+        [data-theme="light"] .text-slate-400 {
+            color: #475569 !important;
+        }
+        
+        [data-theme="light"] .text-slate-300 {
+            color: #334155 !important;
+        }
+        
+        [data-theme="light"] .text-teal-400 {
+            color: #0891b2 !important;
+        }
+        
+        [data-theme="light"] .text-gradient {
+            background: linear-gradient(135deg, #0284c7 0%, #0891b2 50%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        [data-theme="light"] .border-white\/10 {
+            border-color: rgba(148, 163, 184, 0.2) !important;
+        }
+        
+        [data-theme="light"] .hover\:text-teal-400:hover {
+            color: #0e7490 !important;
+        }
+        
+        [data-theme="light"] .filter-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #475569;
+        }
+        
+        [data-theme="light"] .case-card::after {
+            background: linear-gradient(to top, rgba(241, 245, 249, 0.95) 0%, transparent 50%);
+        }
+        
+        [data-theme="light"] .text-white {
+        [data-theme="light"].text-white {
+            color: #0f172a !important;
+        }
+        
+        [data-theme="light"] .text-slate-300 {
+            color: #1e293b !important;
+        }
+        
+        [data-theme="light"] .bg-gradient-to-r.from-blue-900 {
+            background: linear-gradient(to right, #e0f2fe, #bae6fd) !important;
+        }
+    </style>
+    <!-- Theme initialization - must be before body to prevent flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+</head>
+
+<body class="bg-slate-900 text-white overflow-x-hidden">
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="./assets/logo-en.png" alt="Milan Tech Logo" class="h-8 w-auto">
+                    <span class="text-xl md:text-2xl font-bold tracking-tight">ML<span class="text-teal-400">Tech</span></span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#products" class="text-slate-300 hover:text-teal-400 transition-colors">产品矩阵</a>
+                    <a href="index.html#technology" class="text-slate-300 hover:text-teal-400 transition-colors">技术架构</a>
+                    <a href="index.html#solutions" class="text-slate-300 hover:text-teal-400 transition-colors">解决方案</a>
+                    <a href="about.html" class="text-slate-300 hover:text-teal-400 transition-colors">关于我们</a>
+                    <a href="contact.html" class="text-slate-300 hover:text-teal-400 transition-colors">联系我们</a>
+                </div>
+                
+                <div class="flex items-center gap-3">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+                        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                    
+                    <button class="md:hidden p-2 rounded-lg hover:bg-white/10" onclick="toggleMobileMenu()">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html#products" class="block py-2 text-slate-300 hover:text-teal-400">产品矩阵</a>
+                <a href="index.html#technology" class="block py-2 text-slate-300 hover:text-teal-400">技术架构</a>
+                <a href="index.html#solutions" class="block py-2 text-slate-300 hover:text-teal-400">解决方案</a>
+                <a href="about.html" class="block py-2 text-slate-300 hover:text-teal-400">关于我们</a>
+                <a href="contact.html" class="block py-2 text-slate-300 hover:text-teal-400">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 ocean-gradient overflow-hidden">
+            <div class="absolute inset-0 grid-bg"></div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="reveal">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                        客户 <span class="text-gradient">案例</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+                        见证智慧渔业数字化转型成果，探索成功故事
+                    </p>
+                </div>
+                
+                <!-- Stats -->
+                <div class="mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
+                    <div class="glass-card rounded-xl p-4 reveal">
+                        <div class="text-2xl md:text-3xl font-bold text-teal-400">50+</div>
+                        <div class="text-sm text-slate-400">合作客户</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 reveal">
+                        <div class="text-2xl md:text-3xl font-bold text-blue-400">1000+</div>
+                        <div class="text-sm text-slate-400">养殖池</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 reveal">
+                        <div class="text-2xl md:text-3xl font-bold text-emerald-400">30%</div>
+                        <div class="text-sm text-slate-400">平均降本</div>
+                    </div>
+                    <div class="glass-card rounded-xl p-4 reveal">
+                        <div class="text-2xl md:text-3xl font-bold text-cyan-400">95%</div>
+                        <div class="text-sm text-slate-400">客户满意度</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="py-6 md:py-8 bg-slate-800/30 border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap gap-2 md:gap-3 justify-center reveal">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10" onclick="filterCases('all')">全部</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10" onclick="filterCases('fish')">鱼类养殖</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10" onclick="filterCases('crab')">蟹类养殖</button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white/5 hover:bg-white/10 border border-white/10" onclick="filterCases('shrimp')">虾类养殖</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases Grid -->
+        <section class="py-12 md:py-16 bg-slate-900 relative grid-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div id="cases-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Case 1 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="fish">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-blue-600/30 to-teal-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-blue-500/80 text-white text-xs rounded-full">鱼类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-blue-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">浙江省 · 2023</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">大型鲈鱼养殖基地智能化改造</h3>
+                            <p class="text-slate-400 text-sm mb-4">部署12套鱼类跟踪识别系统，覆盖36个养殖池，实现投喂精准控制与病害早期预警。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">饲料转化率 +12%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">病害预警 23次</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 2 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="crab">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-emerald-600/30 to-teal-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-emerald-500/80 text-white text-xs rounded-full">蟹类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-emerald-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">福建省 · 2023</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">青蟹养殖合作社巡检升级</h3>
+                            <p class="text-slate-400 text-sm mb-4">引入巡检机器人实现全天候监控，脱壳期识别准确率达92%，显著提升成活率。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">脱壳识别 92%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">成活率 +15%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 3 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="shrimp">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-orange-600/30 to-red-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-orange-500/80 text-white text-xs rounded-full">虾类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-orange-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">山东省 · 2024</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">对虾工厂化养殖自动化</h3>
+                            <p class="text-slate-400 text-sm mb-4">投饵机器人+智能监测系统，实现投喂精准度提升40%，大幅降低人工成本。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">投喂精度 +40%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">人工 -60%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 4 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="fish">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-cyan-600/30 to-blue-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-cyan-500/80 text-white text-xs rounded-full">鱼类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-cyan-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">广东省 · 2024</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">石斑鱼智慧养殖全案</h3>
+                            <p class="text-slate-400 text-sm mb-4">端到端智慧渔业解决方案，从水质监测到智能投喂，实现全流程数字化管理。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">产量 +25%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">能耗 -20%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 5 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="crab">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-indigo-600/30 to-purple-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-indigo-500/80 text-white text-xs rounded-full">蟹类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-indigo-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">江苏省 · 2023</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">大闸蟹品质溯源系统</h3>
+                            <p class="text-slate-400 text-sm mb-4">ERP+区块链溯源，从投苗到餐桌全程可追溯，提升品牌价值和消费者信任。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">品牌价值 +30%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">溯源覆盖率 100%</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Case 6 -->
+                    <article class="case-card glass-card rounded-2xl reveal" data-category="fish">
+                        <div class="h-48 md:h-56 bg-gradient-to-br from-teal-600/30 to-green-500/30 relative">
+                            <span class="case-tag px-3 py-1 bg-teal-500/80 text-white text-xs rounded-full">鱼类养殖</span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-teal-400/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="p-5 md:p-6 relative z-10">
+                            <div class="text-xs text-slate-500 mb-2">海南省 · 2024</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">深海网箱智能监测</h3>
+                            <p class="text-slate-400 text-sm mb-4">声呐+水下视觉融合监测，实时掌握网箱内鱼群状态，预警逃逸和异常情况。</p>
+                            <div class="flex gap-4 text-sm">
+                                <span class="text-teal-400">监测精度 95%</span>
+                                <span class="text-slate-600">|</span>
+                                <span class="text-teal-400">逃逸预警 5次</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-12 md:py-16 bg-slate-800/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 md:mb-12 reveal">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4">客户评价</h2>
+                    <p class="text-slate-400">听听合作伙伴怎么说</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="glass-card rounded-xl p-5 md:p-6 reveal">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-slate-300 text-sm md:text-base mb-4">"Milan Tech 的系统让我们的养殖效率提升了30%，饲料浪费大幅减少，病害也能提前预警，真是太值了！"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center font-bold text-sm">李</div>
+                            <div>
+                                <div class="font-medium text-sm">李总</div>
+                                <div class="text-xs text-slate-500">浙江某养殖基地负责人</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-5 md:p-6 reveal">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-slate-300 text-sm md:text-base mb-4">"巡检机器人帮我们发现了很多之前注意不到的问题，特别是脱壳期的精准识别，让青蟹成活率有了明显提升。"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-sm">王</div>
+                            <div>
+                                <div class="font-medium text-sm">王经理</div>
+                                <div class="text-xs text-slate-500">福建青蟹养殖合作社</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card rounded-xl p-5 md:p-6 reveal">
+                        <div class="flex gap-1 mb-4">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="text-slate-300 text-sm md:text-base mb-4">"溯源系统让我们的大闸蟹有了'身份证'，消费者扫码就能看到全过程，品牌溢价提升明显。"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center font-bold text-sm">张</div>
+                            <div>
+                                <div class="font-medium text-sm">张总</div>
+                                <div class="text-xs text-slate-500">江苏大闸蟹养殖企业</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-12 md:py-16 bg-gradient-to-r from-blue-900 to-teal-900">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">成为我们的下一个成功案例</h2>
+                <p class="text-slate-300 mb-6 md:mb-8">联系我们的专家团队，开启智慧渔业之旅</p>
+                <a href="contact.html" class="inline-flex items-center justify-center bg-white text-slate-900 px-6 md:px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-all transform hover:scale-105 shadow-xl">
+                    立即咨询
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-white/10 py-10 md:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-3 mb-4">
+                        <img src="./assets/logo-en.png" alt="Milan Tech Logo" class="h-8 w-auto">
+                        <span class="text-lg md:text-xl font-bold">MiLanTech</span>
+                    </a>
+                    <p class="text-slate-400 text-sm">全球领先的智慧渔业全栈解决方案提供商</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-3 md:mb-4 text-sm md:text-base">产品</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="index.html#products" class="hover:text-teal-400">渔业智能体</a></li>
+                        <li><a href="index.html#products" class="hover:text-teal-400">知识图谱</a></li>
+                        <li><a href="index.html#products" class="hover:text-teal-400">智慧ERP</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-3 md:mb-4 text-sm md:text-base">公司</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="about.html" class="hover:text-teal-400">关于我们</a></li>
+                        <li><a href="cases.html" class="hover:text-teal-400">客户案例</a></li>
+                        <li><a href="contact.html" class="hover:text-teal-400">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-3 md:mb-4 text-sm md:text-base">联系我们</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>浙江省杭州市余杭区</li>
+                        <li>contact@milan.com</li>
+                        <li>400-888-0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6 md:pt-8 text-center">
+                <p class="text-slate-500 text-sm">&copy; 2026 Milan Tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const body = document.body;
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            
+            if (html.getAttribute('data-theme') === 'light') {
+                html.setAttribute('data-theme', 'dark');
+                body.classList.add('bg-slate-900', 'text-white');
+                body.classList.remove('bg-slate-50', 'text-slate-900');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                body.classList.remove('bg-slate-900', 'text-white');
+                body.classList.add('bg-slate-50', 'text-slate-900');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Theme is already initialized in <head>, update icons only
+        const savedTheme = localStorage.getItem('theme');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        if (savedTheme === 'light') {
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        }
+        
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        
+        function filterCases(category) {
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter cards
+            const cards = document.querySelectorAll('#cases-grid article');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
