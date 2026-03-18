@@ -442,6 +442,81 @@
             top: 0;
         }
         
+        /* Dropdown Menu Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+        
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 0;
+            margin-top: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-theme="light"] .nav-dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+        
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown.active .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .nav-dropdown-item {
+            display: block;
+            padding: 10px 16px;
+            color: #94a3b8;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        [data-theme="light"] .nav-dropdown-item {
+            color: #475569;
+        }
+        
+        .nav-dropdown-item:hover {
+            color: #2dd4bf;
+            background: rgba(45, 212, 191, 0.1);
+        }
+        
+        [data-theme="light"] .nav-dropdown-item:hover {
+            background: rgba(45, 212, 191, 0.1);
+            color: #0d9488;
+        }
+        
+        .nav-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .nav-dropdown-toggle svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-dropdown:hover .nav-dropdown-toggle svg {
+            transform: rotate(180deg);
+        }
+        
         /* Lazy Loading Placeholder */
         .lazy-image {
             background: linear-gradient(90deg, #1e293b 0%, #334155 50%, #1e293b 100%);
@@ -498,11 +573,57 @@
                 </div>
                 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#products" onclick="event.preventDefault(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看产品矩阵">产品矩阵</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <!-- 产品矩阵 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="#products" onclick="event.preventDefault(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看产品矩阵">
+                            产品矩阵
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="AquaClaw-detail.html" class="nav-dropdown-item">养殖智能体-AquaClaw</a>
+                            <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">渔业知识图谱</a>
+                            <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">智慧渔业 ERP</a>
+                            <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">声光监测体系</a>
+                            <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">投饵机器人</a>
+                            <a href="#products" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">巡检机器人</a>
+                        </div>
+                    </div>
+                    
                     <a href="#technology" onclick="event.preventDefault(); document.getElementById('technology').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看技术架构">技术架构</a>
-                    <a href="#solutions" onclick="event.preventDefault(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看解决方案">解决方案</a>
-                    <a href="#cases" onclick="event.preventDefault(); document.getElementById('cases').scrollIntoView({behavior: 'smooth'})" class="text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看应用案例">应用案例</a>
+                    
+                    <!-- 解决方案 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="#solutions" onclick="event.preventDefault(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看解决方案">
+                            解决方案
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="#solutions" onclick="document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">高密度鱼类智慧养殖</a>
+                            <a href="#solutions" onclick="document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-item">青蟹智能养殖管理</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 应用案例 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="#cases" onclick="event.preventDefault(); document.getElementById('cases').scrollIntoView({behavior: 'smooth'})" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium" aria-label="查看应用案例">
+                            应用案例
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="cases.html" class="nav-dropdown-item">大型鲈鱼养殖基地</a>
+                            <a href="cases.html" class="nav-dropdown-item">青蟹养殖合作社</a>
+                            <a href="cases.html" class="nav-dropdown-item">对虾工厂化养殖</a>
+                            <a href="cases.html" class="nav-dropdown-item">更多案例...</a>
+                        </div>
+                    </div>
+                    
                     <a href="about.html" target="_self" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">关于我们</a>
                     <a href="contact.html" target="_self" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">联系我们</a>
                 </div>
@@ -535,14 +656,60 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
-            <div class="px-4 py-4 space-y-3">
-                <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">产品矩阵</a>
-                <a href="#technology" onclick="closeMobileMenu(); document.getElementById('technology').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">技术架构</a>
-                <a href="#solutions" onclick="closeMobileMenu(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">解决方案</a>
-                <a href="#cases" onclick="closeMobileMenu(); document.getElementById('cases').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">应用案例</a>
-                <a href="about.html" target="_self" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">关于我们</a>
-                <a href="contact.html" target="_self" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">联系我们</a>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 max-h-[80vh] overflow-y-auto">
+            <div class="px-4 py-4 space-y-2">
+                <!-- 产品矩阵 -->
+                <div class="mobile-nav-group">
+                    <a href="#products" onclick="toggleMobileSubmenu('mobile-products'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        产品矩阵
+                        <svg id="mobile-products-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-products" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="AquaClaw-detail.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">养殖智能体-AquaClaw</a>
+                        <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">渔业知识图谱</a>
+                        <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">智慧渔业 ERP</a>
+                        <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">声光监测体系</a>
+                        <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">投饵机器人</a>
+                        <a href="#products" onclick="closeMobileMenu(); document.getElementById('products').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">巡检机器人</a>
+                    </div>
+                </div>
+                
+                <a href="#technology" onclick="closeMobileMenu(); document.getElementById('technology').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">技术架构</a>
+                
+                <!-- 解决方案 -->
+                <div class="mobile-nav-group">
+                    <a href="#solutions" onclick="toggleMobileSubmenu('mobile-solutions'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        解决方案
+                        <svg id="mobile-solutions-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-solutions" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="#solutions" onclick="closeMobileMenu(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">高密度鱼类智慧养殖</a>
+                        <a href="#solutions" onclick="closeMobileMenu(); document.getElementById('solutions').scrollIntoView({behavior: 'smooth'})" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹智能养殖管理</a>
+                    </div>
+                </div>
+                
+                <!-- 应用案例 -->
+                <div class="mobile-nav-group">
+                    <a href="#cases" onclick="toggleMobileSubmenu('mobile-cases'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        应用案例
+                        <svg id="mobile-cases-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-cases" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">大型鲈鱼养殖基地</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹养殖合作社</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">对虾工厂化养殖</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">更多案例...</a>
+                    </div>
+                </div>
+                
+                <a href="about.html" onclick="closeMobileMenu()" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">关于我们</a>
+                <a href="contact.html" onclick="closeMobileMenu()" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">联系我们</a>
             </div>
         </div>
     </nav>
@@ -1221,6 +1388,32 @@
             const btn = document.getElementById('mobile-menu-btn');
             menu.classList.add('hidden');
             btn.setAttribute('aria-expanded', 'false');
+        }
+        
+        function toggleMobileSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            const isHidden = submenu.classList.contains('hidden');
+            
+            // 关闭其他子菜单
+            document.querySelectorAll('[id^="mobile-"]').forEach(el => {
+                if (el.id !== id && !el.id.endsWith('-icon')) {
+                    el.classList.add('hidden');
+                }
+            });
+            document.querySelectorAll('[id$="-icon"]').forEach(el => {
+                if (el.id !== id + '-icon') {
+                    el.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            if (isHidden) {
+                submenu.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                submenu.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
         }
         
         // ==================== Modal Control ====================

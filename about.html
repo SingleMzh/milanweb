@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0f172a">
     
     <!-- SEO Meta Tags -->
-    <title>关于我们 - Milan Tech | 觅蓝科技</title>
+    <title>关于我们 - MiLan Tech | 觅蓝科技</title>
     <meta name="description" content="了解 Milan Tech 觅蓝科技的发展历程、企业文化和团队。我们致力于用AI技术推动渔业数字化转型。">
     <meta name="keywords" content="Milan Tech,觅蓝科技,关于我们,团队介绍,企业文化,智慧渔业">
     
@@ -151,6 +151,81 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        /* Dropdown Menu Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+        
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 0;
+            margin-top: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        [data-theme="light"] .nav-dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+        
+        .nav-dropdown:hover .nav-dropdown-menu,
+        .nav-dropdown.active .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .nav-dropdown-item {
+            display: block;
+            padding: 10px 16px;
+            color: #94a3b8;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        [data-theme="light"] .nav-dropdown-item {
+            color: #475569;
+        }
+        
+        .nav-dropdown-item:hover {
+            color: #2dd4bf;
+            background: rgba(45, 212, 191, 0.1);
+        }
+        
+        [data-theme="light"] .nav-dropdown-item:hover {
+            background: rgba(45, 212, 191, 0.1);
+            color: #0d9488;
+        }
+        
+        .nav-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .nav-dropdown-toggle svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-dropdown:hover .nav-dropdown-toggle svg {
+            transform: rotate(180deg);
         }
         
         [data-theme="light"] .text-white {
@@ -300,23 +375,74 @@
     <a href="#main-content" class="skip-link">跳转到主要内容</a>
     
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/10 transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 glass border-b border-white/10 transition-all duration-300 safe-area-top" id="navbar" role="navigation" aria-label="主导航">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 md:h-20">
-                <a href="index.html" class="flex items-center space-x-3 cursor-pointer">
-                    <img src="./assets/logo-en.png" alt="Milan Tech Logo" class="h-8 w-auto object-cover">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 cursor-pointer" aria-label="返回首页">
+                    <img src="./assets/logo-en.png" alt="Milan Tech Logo" class="h-8 w-auto object-cover" loading="eager">
                     <span class="text-xl md:text-2xl font-bold tracking-tight">ML<span class="text-teal-400">Tech</span></span>
                 </a>
                 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#products" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">产品矩阵</a>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <!-- 产品矩阵 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="index.html#products" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                            产品矩阵
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="AquaClaw-detail.html" class="nav-dropdown-item">养殖智能体-AquaClaw</a>
+                            <a href="index.html#products" class="nav-dropdown-item">渔业知识图谱</a>
+                            <a href="index.html#products" class="nav-dropdown-item">智慧渔业 ERP</a>
+                            <a href="index.html#products" class="nav-dropdown-item">声光监测体系</a>
+                            <a href="index.html#products" class="nav-dropdown-item">投饵机器人</a>
+                            <a href="index.html#products" class="nav-dropdown-item">巡检机器人</a>
+                        </div>
+                    </div>
+                    
                     <a href="index.html#technology" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">技术架构</a>
-                    <a href="index.html#solutions" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">解决方案</a>
+                    
+                    <!-- 解决方案 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="index.html#solutions" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                            解决方案
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="index.html#solutions" class="nav-dropdown-item">高密度鱼类智慧养殖</a>
+                            <a href="index.html#solutions" class="nav-dropdown-item">青蟹智能养殖管理</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 应用案例 Dropdown -->
+                    <div class="nav-dropdown">
+                        <a href="index.html#cases" class="nav-dropdown-toggle text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                            应用案例
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="cases.html" class="nav-dropdown-item">大型鲈鱼养殖基地</a>
+                            <a href="cases.html" class="nav-dropdown-item">青蟹养殖合作社</a>
+                            <a href="cases.html" class="nav-dropdown-item">对虾工厂化养殖</a>
+                            <a href="cases.html" class="nav-dropdown-item">更多案例...</a>
+                        </div>
+                    </div>
+                    
                     <a href="about.html" class="text-teal-400 font-medium">关于我们</a>
                     <a href="contact.html" class="text-slate-300 hover:text-teal-400 transition-colors font-medium">联系我们</a>
                 </div>
                 
+                <!-- Right Side Controls -->
                 <div class="flex items-center gap-3">
+                    <!-- Theme Toggle -->
                     <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
                         <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -326,7 +452,13 @@
                         </svg>
                     </button>
                     
-                    <button class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" onclick="toggleMobileMenu()" aria-label="打开菜单">
+                    <!-- CTA Button -->
+                    <a href="contact.html" class="hidden sm:block bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white px-4 md:px-6 py-2 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30 text-sm md:text-base">
+                        产品演示
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors" onclick="toggleMobileMenu()" aria-label="打开菜单" aria-expanded="false" id="mobile-menu-btn">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -335,13 +467,61 @@
             </div>
         </div>
         
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
-            <div class="px-4 py-4 space-y-3">
-                <a href="index.html#products" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">产品矩阵</a>
-                <a href="index.html#technology" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">技术架构</a>
-                <a href="index.html#solutions" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">解决方案</a>
-                <a href="about.html" class="block py-2 text-teal-400">关于我们</a>
-                <a href="contact.html" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors">联系我们</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 max-h-[80vh] overflow-y-auto">
+            <div class="px-4 py-4 space-y-2">
+                <!-- 产品矩阵 -->
+                <div class="mobile-nav-group">
+                    <a href="index.html#products" onclick="toggleMobileSubmenu('mobile-products'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        产品矩阵
+                        <svg id="mobile-products-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-products" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="AquaClaw-detail.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">养殖智能体-AquaClaw</a>
+                        <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">渔业知识图谱</a>
+                        <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">智慧渔业 ERP</a>
+                        <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">声光监测体系</a>
+                        <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">投饵机器人</a>
+                        <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">巡检机器人</a>
+                    </div>
+                </div>
+                
+                <a href="index.html#technology" onclick="closeMobileMenu()" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">技术架构</a>
+                
+                <!-- 解决方案 -->
+                <div class="mobile-nav-group">
+                    <a href="index.html#solutions" onclick="toggleMobileSubmenu('mobile-solutions'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        解决方案
+                        <svg id="mobile-solutions-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-solutions" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="index.html#solutions" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">高密度鱼类智慧养殖</a>
+                        <a href="index.html#solutions" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹智能养殖管理</a>
+                    </div>
+                </div>
+                
+                <!-- 应用案例 -->
+                <div class="mobile-nav-group">
+                    <a href="index.html#cases" onclick="toggleMobileSubmenu('mobile-cases'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                        应用案例
+                        <svg id="mobile-cases-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <div id="mobile-cases" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">大型鲈鱼养殖基地</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹养殖合作社</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">对虾工厂化养殖</a>
+                        <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">更多案例...</a>
+                    </div>
+                </div>
+                
+                <a href="about.html" onclick="closeMobileMenu()" class="block py-2 text-teal-400 font-medium">关于我们</a>
+                <a href="contact.html" onclick="closeMobileMenu()" class="block py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">联系我们</a>
             </div>
         </div>
     </nav>
@@ -369,23 +549,23 @@
                     <div class="reveal">
                         <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">引领智慧渔业变革</h2>
                         <p class="text-slate-400 mb-4 leading-relaxed">
-                            Milan Tech（觅蓝科技）成立于2020年，是一家专注于智慧渔业全栈解决方案的高科技企业。我们深耕水产养殖领域，将人工智能、物联网、机器人技术与传统渔业深度融合。
+                            Milan Tech（觅蓝科技）成立于2025年，是一家专注于智慧渔业全栈解决方案的高科技企业。我们深耕水产养殖领域，将人工智能、物联网、机器人技术与传统渔业深度融合。
                         </p>
                         <p class="text-slate-400 mb-4 leading-relaxed">
                             我们的使命是通过技术创新，帮助养殖户实现降本增效，推动渔业可持续发展。从知识图谱到智能机器人，从数据分析到自主决策，我们正在重新定义现代水产养殖的每一个环节。
                         </p>
                         <div class="grid grid-cols-3 gap-4 mt-6 md:mt-8">
                             <div class="text-center">
-                                <div class="text-2xl md:text-3xl font-bold text-teal-400">50+</div>
+                                <div class="text-2xl md:text-3xl font-bold text-teal-400">20+</div>
                                 <div class="text-xs md:text-sm text-slate-500 mt-1">合作伙伴</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl md:text-3xl font-bold text-teal-400">1000+</div>
+                                <div class="text-2xl md:text-3xl font-bold text-teal-400">100+</div>
                                 <div class="text-xs md:text-sm text-slate-500 mt-1">养殖池接入</div>
                             </div>
                             <div class="text-center">
                                 <div class="text-2xl md:text-3xl font-bold text-teal-400">30%</div>
-                                <div class="text-xs md:text-sm text-slate-500 mt-1">平均降本</div>
+                                <div class="text-xs md:text-sm text-slate-500 mt-1">效率提升</div>
                             </div>
                         </div>
                     </div>
@@ -416,41 +596,41 @@
                 <div class="timeline reveal">
                     <div class="timeline-item">
                         <div class="glass-card rounded-xl p-5 md:p-6">
-                            <div class="text-teal-400 font-bold text-lg mb-2">2020</div>
-                            <h3 class="text-lg md:text-xl font-bold mb-2">公司成立</h3>
-                            <p class="text-slate-400 text-sm md:text-base">Milan Tech 在杭州成立，组建核心研发团队，开始智慧渔业技术的探索与研究。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="glass-card rounded-xl p-5 md:p-6">
-                            <div class="text-teal-400 font-bold text-lg mb-2">2021</div>
-                            <h3 class="text-lg md:text-xl font-bold mb-2">首款产品发布</h3>
-                            <p class="text-slate-400 text-sm md:text-base">推出第一代鱼类跟踪识别系统，在多个养殖基地完成试点验证，识别准确率达到90%以上。</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="glass-card rounded-xl p-5 md:p-6">
                             <div class="text-teal-400 font-bold text-lg mb-2">2022</div>
-                            <h3 class="text-lg md:text-xl font-bold mb-2">产品矩阵完善</h3>
-                            <p class="text-slate-400 text-sm md:text-base">发布投饵机器人、巡检机器人等硬件产品，形成完整的"端边云"产品体系。</p>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">创始团队组建</h3>
+                            <p class="text-slate-400 text-sm md:text-base">Milan Tech核心创始团队在杭州成立，开始渔业智能化产业需求调研，研究智慧渔业集成应用技术</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="glass-card rounded-xl p-5 md:p-6">
                             <div class="text-teal-400 font-bold text-lg mb-2">2023</div>
-                            <h3 class="text-lg md:text-xl font-bold mb-2">规模扩张</h3>
-                            <p class="text-slate-400 text-sm md:text-base">服务覆盖全国10个省份，接入养殖池超过1000个，累计处理养殖数据超过10TB。</p>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">初代感知一体化样机研制与测试</h3>
+                            <p class="text-slate-400 text-sm md:text-base">完成第一代集视觉信息、多参数水质为一体的集成感知样机的研制，并在养殖基地进行测试验证</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card rounded-xl p-5 md:p-6">
+                            <div class="text-teal-400 font-bold text-lg mb-2">2024</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">渔业垂域智能体研制</h3>
+                            <p class="text-slate-400 text-sm md:text-base">构建面向渔业生产的多级智能体，建立耦合大小模型、智慧图谱与养殖经验的综合决策体系，实现养殖决策从”定性➡️定量➡️定性“的范式变迁</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card rounded-xl p-5 md:p-6">
+                            <div class="text-teal-400 font-bold text-lg mb-2">2025</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">公司正式成立与第一代产品研发</h3>
+                            <p class="text-slate-400 text-sm md:text-base">组建核心研发团队，围绕”边端云“技术架构研制面向渔业智能感知与运算决策的一体化边缘计算终端</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="glass-card rounded-xl p-5 md:p-6 border-2 border-teal-500/30">
-                            <div class="text-teal-400 font-bold text-lg mb-2">2024</div>
-                            <h3 class="text-lg md:text-xl font-bold mb-2">AI智能体时代</h3>
-                            <p class="text-slate-400 text-sm md:text-base">推出养殖智能体 AquaClaw，集成大模型技术，实现真正的自主决策与无人值守养殖。</p>
+                            <div class="text-teal-400 font-bold text-lg mb-2">2026</div>
+                            <h3 class="text-lg md:text-xl font-bold mb-2">AI智能体与具身智能时代</h3>
+                            <p class="text-slate-400 text-sm md:text-base">研制渔业生产应用机器人，打通“感知-决策-执行”闭环，为渔业现代化转型提供自主决策与无人值守养殖的完整技术产品体系与解决方案</p>
                         </div>
                     </div>
                 </div>
@@ -520,38 +700,38 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div class="glass-card rounded-xl p-4 md:p-6 text-center reveal">
                         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 mx-auto mb-3 md:mb-4 flex items-center justify-center">
-                            <span class="text-xl md:text-2xl font-bold">张</span>
+                            <span class="text-xl md:text-2xl font-bold">刘</span>
                         </div>
-                        <h3 class="font-bold text-sm md:text-base mb-1">张明远</h3>
-                        <p class="text-teal-400 text-xs md:text-sm mb-2">创始人 & CEO</p>
-                        <p class="text-slate-500 text-xs">浙江大学博士，专注AI与渔业融合研究15年</p>
+                        <h3 class="font-bold text-sm md:text-base mb-1">刘子毅</h3>
+                        <p class="text-teal-400 text-xs md:text-sm mb-2">创始人</p>
+                        <p class="text-slate-500 text-xs">浙江大学博士毕业，从事AI与渔业融合研究15年</p>
                     </div>
                     
                     <div class="glass-card rounded-xl p-4 md:p-6 text-center reveal">
                         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 mx-auto mb-3 md:mb-4 flex items-center justify-center">
-                            <span class="text-xl md:text-2xl font-bold">李</span>
+                            <span class="text-xl md:text-2xl font-bold">麻</span>
                         </div>
-                        <h3 class="font-bold text-sm md:text-base mb-1">李晓芳</h3>
-                        <p class="text-teal-400 text-xs md:text-sm mb-2">联合创始人 & CTO</p>
-                        <p class="text-slate-500 text-xs">前阿里巴巴技术专家，计算机视觉领域资深专家</p>
+                        <h3 class="font-bold text-sm md:text-base mb-1">麻志宏</h3>
+                        <p class="text-teal-400 text-xs md:text-sm mb-2">联合创始人</p>
+                        <p class="text-slate-500 text-xs">浙江大学博士毕业，研究员，从事智慧渔业与智能装备研究</p>
                     </div>
                     
                     <div class="glass-card rounded-xl p-4 md:p-6 text-center reveal">
                         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 mx-auto mb-3 md:mb-4 flex items-center justify-center">
-                            <span class="text-xl md:text-2xl font-bold">王</span>
+                            <span class="text-xl md:text-2xl font-bold">李</span>
                         </div>
-                        <h3 class="font-bold text-sm md:text-base mb-1">王建华</h3>
+                        <h3 class="font-bold text-sm md:text-base mb-1">李贤</h3>
                         <p class="text-teal-400 text-xs md:text-sm mb-2">首席科学家</p>
-                        <p class="text-slate-500 text-xs">中国水产科学研究院研究员，水产养殖专家</p>
+                        <p class="text-slate-500 text-xs">中国海洋大学教授，水产养殖专家</p>
                     </div>
                     
                     <div class="glass-card rounded-xl p-4 md:p-6 text-center reveal">
                         <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-orange-500 to-red-500 mx-auto mb-3 md:mb-4 flex items-center justify-center">
-                            <span class="text-xl md:text-2xl font-bold">陈</span>
+                            <span class="text-xl md:text-2xl font-bold">待</span>
                         </div>
-                        <h3 class="font-bold text-sm md:text-base mb-1">陈思雨</h3>
-                        <p class="text-teal-400 text-xs md:text-sm mb-2">产品总监</p>
-                        <p class="text-slate-500 text-xs">前华为产品经理，10年B端产品设计经验</p>
+                        <h3 class="font-bold text-sm md:text-base mb-1">待定</h3>
+                        <p class="text-teal-400 text-xs md:text-sm mb-2">待定</p>
+                        <p class="text-slate-500 text-xs">待定</p>
                     </div>
                 </div>
             </div>
@@ -567,9 +747,9 @@
                     <a href="contact.html" class="bg-white text-slate-900 px-6 md:px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-all transform hover:scale-105 shadow-xl inline-flex items-center justify-center text-sm md:text-base">
                         联系我们
                     </a>
-                    <a href="#" class="glass text-white px-6 md:px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-all border border-white/30 inline-flex items-center justify-center text-sm md:text-base">
+                    <!-- <a href="#" class="glass text-white px-6 md:px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-all border border-white/30 inline-flex items-center justify-center text-sm md:text-base">
                         查看职位
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </section>
@@ -608,7 +788,7 @@
                 <div>
                     <h4 class="font-semibold mb-3 md:mb-4 text-sm md:text-base">联系我们</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li>浙江省杭州市余杭区</li>
+                        <li>浙江省杭州市西湖区西园八路浙大森林C1幢</li>
                         <li>contact@milan.com</li>
                         <li>400-888-0000</li>
                     </ul>
@@ -657,7 +837,49 @@
         // Mobile Menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            const btn = document.getElementById('mobile-menu-btn');
+            const isHidden = menu.classList.contains('hidden');
+            
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+        
+        function toggleMobileSubmenu(id) {
+            const submenu = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            const isHidden = submenu.classList.contains('hidden');
+            
+            // 关闭其他子菜单
+            document.querySelectorAll('[id^="mobile-"]').forEach(el => {
+                if (el.id !== id && !el.id.endsWith('-icon')) {
+                    el.classList.add('hidden');
+                }
+            });
+            document.querySelectorAll('[id$="-icon"]').forEach(el => {
+                if (el.id !== id + '-icon') {
+                    el.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            if (isHidden) {
+                submenu.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                submenu.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
         }
         
         // Scroll Animation
