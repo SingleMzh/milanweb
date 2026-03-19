@@ -416,12 +416,12 @@
             <div class="px-4 py-4 space-y-2">
                 <!-- 产品矩阵 -->
                 <div class="mobile-nav-group">
-                    <a href="index.html#products" onclick="toggleMobileSubmenu('mobile-products'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                    <button type="button" onclick="toggleMobileSubmenu('mobile-products')" class="w-full flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium bg-transparent border-none cursor-pointer" aria-expanded="false" aria-controls="mobile-products">
                         产品矩阵
                         <svg id="mobile-products-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
-                    </a>
+                    </button>
                     <div id="mobile-products" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
                         <a href="AquaClaw-detail.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">养殖智能体-AquaClaw</a>
                         <a href="index.html#products" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">渔业知识图谱</a>
@@ -436,12 +436,12 @@
                 
                 <!-- 解决方案 -->
                 <div class="mobile-nav-group">
-                    <a href="index.html#solutions" onclick="toggleMobileSubmenu('mobile-solutions'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                    <button type="button" onclick="toggleMobileSubmenu('mobile-solutions')" class="w-full flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium bg-transparent border-none cursor-pointer" aria-expanded="false" aria-controls="mobile-solutions">
                         解决方案
                         <svg id="mobile-solutions-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
-                    </a>
+                    </button>
                     <div id="mobile-solutions" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
                         <a href="index.html#solutions" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">高密度鱼类智慧养殖</a>
                         <a href="index.html#solutions" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹智能养殖管理</a>
@@ -450,12 +450,12 @@
                 
                 <!-- 应用案例 -->
                 <div class="mobile-nav-group">
-                    <a href="index.html#cases" onclick="toggleMobileSubmenu('mobile-cases'); return false;" class="flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium">
+                    <button type="button" onclick="toggleMobileSubmenu('mobile-cases')" class="w-full flex items-center justify-between py-2 text-slate-300 hover:text-teal-400 transition-colors font-medium bg-transparent border-none cursor-pointer" aria-expanded="false" aria-controls="mobile-cases">
                         应用案例
                         <svg id="mobile-cases-icon" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
-                    </a>
+                    </button>
                     <div id="mobile-cases" class="hidden pl-4 space-y-1 border-l border-slate-700 ml-2">
                         <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">大型鲈鱼养殖基地</a>
                         <a href="cases.html" onclick="closeMobileMenu()" class="block py-2 text-sm text-slate-400 hover:text-teal-400">青蟹养殖合作社</a>
@@ -791,12 +791,12 @@
             const isHidden = submenu.classList.contains('hidden');
             
             // 关闭其他子菜单
-            document.querySelectorAll('[id^="mobile-"]').forEach(el => {
-                if (el.id !== id && !el.id.endsWith('-icon')) {
+            document.querySelectorAll('.mobile-nav-group > div[id^="mobile-"]').forEach(el => {
+                if (el.id !== id) {
                     el.classList.add('hidden');
                 }
             });
-            document.querySelectorAll('[id$="-icon"]').forEach(el => {
+            document.querySelectorAll('.mobile-nav-group svg[id$="-icon"]').forEach(el => {
                 if (el.id !== id + '-icon') {
                     el.style.transform = 'rotate(0deg)';
                 }
@@ -823,12 +823,10 @@
                 menu.classList.add('hidden');
                 btn.setAttribute('aria-expanded', 'false');
                 // 关闭所有子菜单
-                document.querySelectorAll('[id^="mobile-"]').forEach(el => {
-                    if (!el.id.endsWith('-icon')) {
-                        el.classList.add('hidden');
-                    }
+                document.querySelectorAll('.mobile-nav-group > div[id^="mobile-"]').forEach(el => {
+                    el.classList.add('hidden');
                 });
-                document.querySelectorAll('[id$="-icon"]').forEach(el => {
+                document.querySelectorAll('.mobile-nav-group svg[id$="-icon"]').forEach(el => {
                     el.style.transform = 'rotate(0deg)';
                 });
             }
